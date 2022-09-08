@@ -21,8 +21,10 @@ def get_data(max_page):
 
 			link = soup.find('a', class_='news-item border-radius').get('href')
 
-			
-			response_L2 = requests.get(link)
+			proxy = {
+				'type': 'type://ip:port'
+			}
+			response_L2 = requests.get(link, proxies = proxy)
 			soup_L2 = BeautifulSoup(response_L2.text, 'lxml')
 
 
